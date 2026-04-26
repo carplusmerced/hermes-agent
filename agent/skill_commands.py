@@ -373,6 +373,13 @@ def scan_skill_commands() -> Dict[str, Dict[str, Any]]:
                     continue
     except Exception:
         pass
+
+    # Operator shorthand: /skillify is a thin alias for the explicit
+    # /skillify-failures skill. Keep this as an alias rather than a duplicate
+    # skill so there is only one durable workflow to maintain.
+    if "/skillify-failures" in _skill_commands and "/skillify" not in _skill_commands:
+        _skill_commands["/skillify"] = dict(_skill_commands["/skillify-failures"])
+
     return _skill_commands
 
 

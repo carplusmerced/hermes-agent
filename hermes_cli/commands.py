@@ -147,6 +147,8 @@ COMMAND_REGISTRY: list[CommandDef] = [
                subcommands=("connect", "disconnect", "status")),
     CommandDef("plugins", "List installed plugins and their status",
                "Tools & Skills", cli_only=True),
+    CommandDef("skillify", "Turn a failure or lesson into a durable skill/regression fix",
+               "Tools & Skills", args_hint="[failure or lesson]"),
 
     # Info
     CommandDef("commands", "Browse all commands and skills (paginated)", "Info",
